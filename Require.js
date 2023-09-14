@@ -1,0 +1,14 @@
+const express = require('express');
+const bodyparser = require('body-parser');
+const cors = require('cors');
+const events = require('./Routes/events');
+const register = require('./Routes/register');
+const Login=require('./Routes/login');
+const app = express();
+app.use(cors());
+app.use(bodyparser.urlencoded({ extended :  true}));
+app.use(bodyparser.json());
+app.use('/events', events);
+app.use('/reg', register);
+app.use('/log', Login);
+module.exports = app;
